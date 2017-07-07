@@ -1,6 +1,10 @@
 # Robotic arm - Pick & Place project
 
+## Req's
+You will be using the ROS virtual enviroment. 
 Make sure you are using robo-nd VM or have Ubuntu+ROS installed locally.
+The `IK_server.py` file is located in the kuka arm folder as described.  
+That file can be launched in a terminal window after the VM and Robotic world is loaded. 
 
 ### One time Gazebo setup step:
 Check the version of gazebo installed on your system using a terminal:
