@@ -39,6 +39,16 @@ The basic breakdown of the links and base is shown below. The Kuka Arm KR210 rob
 ![Kukaarm](misc_images/kukaarm.png)
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
+link | alpha j-1 | a i-1 | d i-1 | Theta i
+--- | --- | --- | --- | ---
+1 | 0 | 0 | 0.75 | Theta 1
+2 | -pi/2 | 0.35 | 0| Theta 2
+3 | 0 | 1.25 | 0 | Theta 3
+4 | -pi/2 | -0.054 | 1.5 | Theta 4 
+5 | pi/2 | 3 | 0 | Theta 5
+6 | -pi/2| 3 | 0 | Theta 6
+7 | 0 | 3 | 0.303 | 0
+
 Figure 2 Below represents the Kuka Arm in a table without the descriptions as noted in section 1 above. Key aspect is that I also list the joint matrix variable in an easy human format with the headers in line one and joints incrementally addressed from 0 to the Gripper.  Column X in the figure below represents the X coordinates of lengths as normally seen to the right of the origin (horizontal) with the column Y being the vertical coordinate as found in any Cartesian System.  Column Z represents the third dimension of the robotic arm by showing the offset of a perfect vertical plane from the center of the base though the arm until the gripper. The chart differs from Figure 1 in that we are only looking the Joints with respect to sum of the total lengths to each joint. 
 If the number carries the same value to the next row and in the same column, the arm for all purposes length has not changed. The length in X of JO_2_List and JO_3_List is 0.350. This means no additional length of the link has been added. The next line then is a summation of the total links to that that point in the arm. From the base to the end of the Gripper is 2.153 with the total offset of 1.946. 
 The data in this table should reflect what is in Figure 1 with the knowledge that the values in this table were acquired by using a Terminal Window with the ping or echo back of the parameters of XYZ.         
