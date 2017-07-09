@@ -39,6 +39,8 @@ The basic breakdown of the links and base is shown below. The Kuka Arm KR210 rob
 ![Kukaarm](misc_images/kukaarm.png)
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
+DH Parameter Table
+
 link | alpha j-1 | a i-1 | d i-1 | Theta i
 --- | --- | --- | --- | ---
 1 | 0 | 0 | 0.75 | Theta 1
