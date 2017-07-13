@@ -125,7 +125,7 @@ def handle_calculate_IK(req):
         R_corr = trigsimp(R_z * R_y)
         print "R_corr : %s " % R_corr # screen print to ensure scritpt is running.
         #calculate corrected transform from base to end effector
-        T_total = simplify(T0_G * R_corr)
+        #T_total = simplify(T0_G * R_corr)
         print "T_total : %s " % T_total # screen print to ensure scritpt is running.
         
         # Next extract the rotational component from the transformation matrix
