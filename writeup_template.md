@@ -34,9 +34,17 @@ You're reading it!
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-The basic breakdown of the links and base is shown below. The Kuka Arm KR210 robot has 6 Degrees of Freedom (DOF) with 6 joints and 5 links. Joint 0 is the “fixed” base link with a direct connection to Joint 1 that creates an offset of .33. Joint 1 connects to Joint 2 with a .42 offset with a link connection of .38. Joint 2 connects to Joint 3 with a direct link with a 1.25 offset. Joint 3 connects to Joint 4 by a .96 link and offset of a -.054. Joint 4 connects to Joint 5 (wrist) with a .54 link. Joint 5 connects to the hand by a .193 link. The hand consists of a left and right finger of .11. Total length of the arm from the center of the base is 2.153. The total offset from the center of the base in a positive Z direction is 1.946. This data is derived from the xacro file as part of the simulation world for this project.  
+The basic breakdown of the links and base is shown below. The Kuka Arm KR210 robot has 6 Degrees of Freedom (DOF) with 6 joints and 5 links.
+Joint 0 is the “fixed” base link with a direct connection to Joint 1 that creates an offset of .33. 
+Joint 1 connects to Joint 2 with a .42 offset with a link connection of .38. Joint 2 connects to Joint 3 with a direct link with a 1.25 offset.
+Joint 3 connects to Joint 4 by a .96 link and offset of a -.054. Joint 4 connects to Joint 5 (wrist) with a .54 link. 
+Joint 5 connects to the hand by a .193 link. The hand consists of a left and right finger of .11. 
+Total length of the arm from the center of the base is 2.153. The total offset from the center of the base in a positive Z direction is 1.946. 
+This data is derived from the xacro file as part of the simulation world for this project along with using the ROS environment demo to check lengths and rotation angles.   
 ##### Figure 1
 ![Kukaarm](misc_images/kukaarm.png)
+##### Figure 1a
+![File2](misc_images/file2.png)
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
 DH Parameter Table
