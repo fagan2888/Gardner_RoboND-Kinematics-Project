@@ -92,7 +92,7 @@ Individual transformation matrices (item 5) were completed for each joint as per
 
 Next I did a trigsimp transformation for each to finally arrive at the end-effector derived from the individual matrices â€“ in a form of Tx_x = trigsimp(Tx_1 * Tx_2). 
 The orientation of the gripper needed to be corrected in differences between the definition of gripper link in URDF verse the DH parameters. This was done by first a rotation (R) around the Z-axis (R-z) and then about the Y-Axis (R_y). Other calculations in this section include a total for the rotation correction and a transformational matrix.  
-For item 6, I completed a full list of the Calculate joint angles using Geometric IK method by running the rosrun command as seen in figure 2, The entire list may not have been necessary but may be of use in the future - j0_5_list = [1.85, 0, 1.946].  The numbers found in the matrix is directly from the echo command in ROS. 
+For item 6, I completed a full list of the Calculate joint angles using Geometric IK method by running the rosrun command as seen in figure 2, The entire list may not have been necessary but may be of use in the future The numbers found in the matrix is directly from the echo command in ROS. 
 
 Finally, I do some pre-calculations to simply the process of getting the Thetas needed for sending the IK back to the robotic arm.  Of those I use the python atan2 to return the quadrant of the angle as you can define the sign of the X and Y.  The results are Theta1-6 are calculated and returned to ROS for the arm in CalculateIKResponse(joint_trajectory_list). 
 
