@@ -103,23 +103,22 @@ def handle_calculate_IK(req):
                           [          0,           0,       1,      0],
                           [          0,           0,       0,      1]])
             
-<<<<<<< HEAD
+
             #Second preform the rotate around y-axis by -pi/2
             R_y = Matrix([[ cos(-np.pi/2),        0,  sin(-np.pi/2),   0],
                           [             0,        1,              0,   0],
                           [-sin(-np.pi/2),        0,  cos(-np.pi/2),   0],
                           [             0,        0,              0,   1]])
-=======
-        #calculate total correction factor
-        R_corr = trigsimp(R_z * R_y)
-        print "R_corr : %s " % R_corr # screen print to ensure scritpt is running.
-        #calculate corrected transform from base to end effector
-        #T_total = simplify(T0_G * R_corr)
-        print "T_total : %s " % T_total # screen print to ensure scritpt is running.
+
+            #calculate total correction factor
+            R_corr = trigsimp(R_z * R_y)
+            print "R_corr : %s " % R_corr # screen print to ensure scritpt is running.
+            #calculate corrected transform from base to end effector
+            #T_total = simplify(T0_G * R_corr)
+            print "T_total : %s " % T_total # screen print to ensure scritpt is running.
         
-        # Next extract the rotational component from the transformation matrix
-        R0_3 = T0_3[0:3, 0:3]
->>>>>>> 606f6a68287fec59e2addf3f848476e4b9d88d4a
+            # Next extract the rotational component from the transformation matrix
+            R0_3 = T0_3[0:3, 0:3]
             
             #Calculate total correction factor
             R_corr = trigsimp(R_z * R_y)
@@ -135,8 +134,8 @@ def handle_calculate_IK(req):
             
         
             # Extract end-effector position and orientation from request
-	        # px,py,pz = end-effector position
-	        # roll, pitch, yaw = end-effector orientation
+	    # px,py,pz = end-effector position
+	    # roll, pitch, yaw = end-effector orientation
             px = req.poses[x].position.x
             py = req.poses[x].position.y
             pz = req.poses[x].position.z
