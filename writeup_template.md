@@ -25,7 +25,7 @@
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
-### Writeup / README
+## Writeup / README
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  
 
@@ -34,6 +34,7 @@ You're reading it!
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
+<<<<<<< HEAD
 The basic breakdown of the links and base is shown below. The Kuka Arm KR210 robot has 6 Degrees of Freedom (DOF) with 6 joints and 5 links.
 Joint 0 is the “fixed” base link with a direct connection to Joint 1 that creates an offset of .33. 
 Joint 1 connects to Joint 2 with a .42 offset with a link connection of .38. Joint 2 connects to Joint 3 with a direct link with a 1.25 offset.
@@ -41,6 +42,9 @@ Joint 3 connects to Joint 4 by a .96 link and offset of a -.054. Joint 4 connect
 Joint 5 connects to the hand by a .193 link. The hand consists of a left and right finger of .11. 
 Total length of the arm from the center of the base is 2.153. The total offset from the center of the base in a positive Z direction is 1.946. 
 This data is derived from the xacro file as part of the simulation world for this project along with using the ROS environment demo to check lengths and rotation angles.   
+=======
+The basic breakdown of the links and base is shown below. The Kuka Arm KR210 robot has 6 Degrees of Freedom (DOF) with 6 joints and 5 links. Joint 0 is the â€œfixedâ€ base link with a direct connection to Joint 1 that creates an offset of .33. Joint 1 connects to Joint 2 with a .42 offset with a link connection of .38. Joint 2 connects to Joint 3 with a direct link with a 1.25 offset. Joint 3 connects to Joint 4 by a .96 link and offset of a -.054. Joint 4 connects to Joint 5 (wrist) with a .54 link. Joint 5 connects to the hand by a .193 link. The hand consists of a left and right finger of .11. Total length of the arm from the center of the base is 2.153. The total offset from the center of the base in a positive Z direction is 1.946. This data is derived from the xacro file as part of the simulation world for this project.  
+>>>>>>> 606f6a68287fec59e2addf3f848476e4b9d88d4a
 ##### Figure 1
 ![Kukaarm](misc_images/kukaarm.png)
 ##### Figure 1a
@@ -76,8 +80,6 @@ I used the px, py, pz variables to get the position of the end-effector data acq
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
 
-
-
 The Ik_server.py file required additional coding for the Inverse Kinematics (IK). In this process, I use python based coding to convert equations used to calculate the join angles for the KUKA arm KR210 by working backwards from a list of end-effector poses (fancy name for the gripper).  In general, there are 6 required items as listed below but each may have multiple issues and coding necessary to address the requirement.    
 1)	Define DH param symbols
 2)	Joint angle symbols    
@@ -87,11 +89,11 @@ The Ik_server.py file required additional coding for the Inverse Kinematics (IK)
 6)	Calculate joint angles using Geometric IK method
 
 I first assigned symbols to each link a(x), joint angle q(x), offset d(x), and twist angle alpha(x) to complete items 1 and 2. Then for the Modified DH (item 3 and 4) , a matrix was used in the form of  {alpha0: X,     a0: X,    d1: X, q0:X} as need for each DH symbol to represent the joint and length for each segment.  
-Individual transformation matrices (item 5) were completed for each joint as per Denavit–Hartenberg convention as seen for a serial robot arm having 6 DOF. The matrix convention Figure 4 below allows each joint to be define in the DH syntax. 
+Individual transformation matrices (item 5) were completed for each joint as per Denavitâ€“Hartenberg convention as seen for a serial robot arm having 6 DOF. The matrix convention Figure 4 below allows each joint to be define in the DH syntax. 
 ##### Figure 4
 ![I Kmatrix](misc_images/IKmatrix.png)
 
-Next I did a trigsimp transformation for each to finally arrive at the end-effector derived from the individual matrices – in a form of Tx_x = trigsimp(Tx_1 * Tx_2). 
+Next I did a trigsimp transformation for each to finally arrive at the end-effector derived from the individual matrices â€“ in a form of Tx_x = trigsimp(Tx_1 * Tx_2). 
 The orientation of the gripper needed to be corrected in differences between the definition of gripper link in URDF verse the DH parameters. This was done by first a rotation (R) around the Z-axis (R-z) and then about the Y-Axis (R_y). Other calculations in this section include a total for the rotation correction and a transformational matrix.  
 For item 6, I completed a full list of the Calculate joint angles using Geometric IK method by running the rosrun command as seen in figure 2, The entire list may not have been necessary but may be of use in the future - j0_5_list = [1.85, 0, 1.946].  The numbers found in the matrix is directly from the echo command in ROS. 
 
