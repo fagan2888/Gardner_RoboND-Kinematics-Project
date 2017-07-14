@@ -33,7 +33,7 @@ You're reading it!
 
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
-
+=======
 The basic breakdown of the links and base is shown below. The Kuka Arm KR210 robot has 6 Degrees of Freedom (DOF) with 6 joints and 5 links.
 Joint 0 is the “fixed” base link with a direct connection to Joint 1 that creates an offset of .33. 
 Joint 1 connects to Joint 2 with a .42 offset with a link connection of .38. Joint 2 connects to Joint 3 with a direct link with a 1.25 offset.
